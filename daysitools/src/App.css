@@ -4,16 +4,35 @@
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
 .cajitaxd {
-  padding: 0;
   background-color: black;
   width: 24vw;
+  font-family: "arial";
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
   color: white;
-  height: 30vh;
+  height: 44vh;
+  max-width: 24vw;
   justify-content: start;
   resize: none;
+  outline: none;
+}
+
+.cajitaxd::-webkit-scrollbar {
+  width: 5px;
+  background: white;
+}
+
+.cajitaxd::-webkit-scrollbar-track {
+  background: black;
+}
+.cajitaxd::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 0px;
+  border: 1px solid red;
 }
