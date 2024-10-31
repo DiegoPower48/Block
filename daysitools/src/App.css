@@ -1,0 +1,19 @@
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.cajitaxd {
+  padding: 0;
+  background-color: black;
+  width: 24vw;
+  color: white;
+  height: 30vh;
+  justify-content: start;
+  resize: none;
+}
