@@ -6,7 +6,7 @@ export default function Cuadro({ space }) {
 
   const Datos = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/blocks");
+      const res = await axios.get("https://portfolio-c4l9.onrender.com/blocks");
       const array = res.data;
       setData(array[space - 1]?.texto);
       console.log(data);
@@ -21,7 +21,7 @@ export default function Cuadro({ space }) {
       texto: texto,
     };
     try {
-      await axios.post("http://localhost:3000/editblock", datos);
+      await axios.post("https://portfolio-c4l9.onrender.com/editblock", datos);
     } catch (error) {
       console.log(error);
     }
