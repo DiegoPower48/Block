@@ -12,7 +12,7 @@ function Schedule() {
     const cargarDatos = async () => {
       try {
         const res = await axios.get(
-          "https://chatportfolio.onrender.com/horario"
+          "https://portfolio-c4l9.onrender.com/horario"
         );
         console.log(res.data);
         setCalendario(res.data[0]);
@@ -31,7 +31,7 @@ function Schedule() {
       console.log(calendarioNuevo);
       try {
         await axios.post(
-          "https://chatportfolio.onrender.com/edithorario",
+          "https://portfolio-c4l9.onrender.com/edithorario",
           calendarioNuevo
         );
       } catch (error) {
