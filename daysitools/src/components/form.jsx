@@ -1,19 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Cuadro({ space }) {
-  const [data, setData] = useState();
+export default function Cuadro(props) {
+  const { space, datos } = props;
 
-  const Datos = async () => {
-    try {
-      const res = await axios.get("https://portfolio-c4l9.onrender.com/blocks");
-      const array = res.data;
-      setData(array[space - 1]?.texto);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [data, setData] = useState(datos);
 
   const enviarDatos = async (id, texto) => {
     const datos = {
@@ -33,13 +24,9 @@ export default function Cuadro({ space }) {
     enviarDatos(space, newValue);
   };
 
-  useEffect(() => {
-    Datos();
-  }, []);
-
   return (
     <textarea
-      className="cajitaxd"
+      className="cajitaxd "
       spellCheck="false"
       value={data}
       onChange={handle}

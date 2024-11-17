@@ -1,23 +1,15 @@
-#root {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  height: 100%;
-  width: 100vw;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .cajitaxd {
   background-color: black;
-  width: 24vw;
   font-family: "arial";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 11px;
   letter-spacing: 1px;
   color: white;
-  height: 44vh;
-  max-width: 24vw;
+  height: 50vh;
   justify-content: start;
   resize: none;
   outline: none;

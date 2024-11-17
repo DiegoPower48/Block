@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Cuadro from "./components/form";
+import Block from "./pages/block";
+import Schedule from "./pages/schedule";
+import { useEffect } from "react";
 
 function App() {
   const temporizador = () => {
@@ -18,14 +20,19 @@ function App() {
         final.setHours(tiempo - 1, 55, 0);
       }
 
-      const temporizador = final - ahora;
+      const tiempoFinal = final - ahora;
 
-      console.log(final, ahora, temporizador);
-      setTimeout(() => {
-        alert(`TU TURNO TERMINA A LAS ${tiempo} ATENTA, EN 5 MINUTOS!!! ♥♥♥♥ `);
-      }, temporizador);
+      if (tiempo === NaN) {
+        alert("NO ESCRIBISTE LA HORA");
+      } else {
+        setTimeout(() => {
+          alert(
+            `TU TURNO TERMINA A LAS ${tiempo} ATENTA, EN 5 MINUTOS!!! ♥♥♥♥ `
+          );
+        }, tiempoFinal);
+      }
     } catch (error) {
-      console.log("error, no se ejecutó el temporizador, ES CULPA DE DIEGO");
+      alert("error, no se ejecutó el temporizador, ES CULPA DE DIEGO");
     }
   };
 
@@ -34,18 +41,13 @@ function App() {
   }, []);
 
   return (
-    <>
-      <form className="container">
-        <Cuadro space={1} />
-        <Cuadro space={2} />
-        <Cuadro space={3} />
-        <Cuadro space={4} />
-        <Cuadro space={5} />
-        <Cuadro space={6} />
-        <Cuadro space={7} />
-        <Cuadro space={8} />
-      </form>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Block />} />
+        <Route path="/horario" element={<Schedule />} />
+        <Route path="*" element={<Block />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
