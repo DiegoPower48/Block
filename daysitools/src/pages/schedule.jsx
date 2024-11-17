@@ -11,7 +11,9 @@ function Schedule() {
   useEffect(() => {
     const cargarDatos = async () => {
       try {
-        const res = await axios("https://chatportfolio.onrender.com/horario");
+        const res = await axios.get(
+          "https://chatportfolio.onrender.com/horario"
+        );
         console.log(res.data);
         setCalendario(res.data[0]);
         setLoading(true);
