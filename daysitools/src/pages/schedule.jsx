@@ -53,7 +53,7 @@ function Schedule() {
         </Link>
 
         {!loading ? (
-          <div>cargando...</div>
+          <div></div>
         ) : (
           <div className="flex mt-5">
             <div className="flex flex-col w-36 m-3">
