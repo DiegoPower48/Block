@@ -11,7 +11,7 @@ function Schedule() {
   useEffect(() => {
     const cargarDatos = async () => {
       try {
-        const res = await axios("http://localhost:3000/horario");
+        const res = await axios("https://chatportfolio.onrender.com/horario");
         console.log(res.data);
         setCalendario(res.data[0]);
         setLoading(true);
@@ -28,7 +28,10 @@ function Schedule() {
     const cargarDatos = async () => {
       console.log(calendarioNuevo);
       try {
-        await axios.post("http://localhost:3000/edithorario", calendarioNuevo);
+        await axios.post(
+          "https://chatportfolio.onrender.com/edithorario",
+          calendarioNuevo
+        );
       } catch (error) {
         console.log(error);
       }
