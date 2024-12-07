@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Cuadro from "../components/form";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Block() {
@@ -14,7 +13,6 @@ function Block() {
           "https://portfolio-c4l9.onrender.com/blocks"
         );
         setLoading(true);
-        console.log(res.data[0].texto);
         setTextos(res.data);
       } catch (error) {
         console.log(error);
@@ -29,7 +27,7 @@ function Block() {
         <div></div>
       ) : (
         <div>
-          <form className="grid grid-cols-4 grid-rows-2 gap-px w-full h-full">
+          <form className="grid grid-cols-4 grid-rows-2 gap-px w-full min-h-screen">
             <Cuadro space={1} datos={textos[0].texto} />
             <Cuadro space={2} datos={textos[1].texto} />
             <Cuadro space={3} datos={textos[2].texto} />
@@ -39,11 +37,6 @@ function Block() {
             <Cuadro space={7} datos={textos[6].texto} />
             <Cuadro space={8} datos={textos[7].texto} />
           </form>
-          <Link className="flex" to="/horario">
-            <div className="flex-1 text-center p-5 font-bold bg-red-950 items-center text-white w-96 hover:bg-white hover:text-black">
-              cuadro horarios
-            </div>
-          </Link>
         </div>
       )}
     </div>

@@ -43,4 +43,11 @@ export const useCounterStore = create((set) => ({
         [dia]: state.calendarioNuevo[dia].filter((item) => item !== hora),
       },
     })),
+
+  time: [],
+
+  setTime: (hora) =>
+    set((state) => ({
+      time: [...state.time, hora],
+    })),
 }));
