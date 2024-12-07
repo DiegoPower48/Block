@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { useCounterStore } from "./store/store";
 
 function App() {
-  const { totalTime } = useCounterStore();
-
   const [pagina1, setPagina1] = useState("");
   const [pagina2, setPagina2] = useState("hidden");
 
