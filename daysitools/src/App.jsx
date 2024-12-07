@@ -46,7 +46,7 @@ function App() {
 
     console.log(time);
     time.map((e) => {
-      fecha.setHours(e, 44, 0);
+      fecha.setHours(e, 57, 0);
       console.log(fecha);
       resta(fecha);
     });
