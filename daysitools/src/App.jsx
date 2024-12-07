@@ -5,52 +5,14 @@ import { useEffect, useState } from "react";
 import { useCounterStore } from "./store/store";
 
 function App() {
-  const { time, paginas } = useCounterStore();
+  const { totalTime } = useCounterStore();
 
   const [pagina1, setPagina1] = useState("");
   const [pagina2, setPagina2] = useState("hidden");
 
-  const nombres = [
-    "HERMOSA ❤❤❤",
-    "MI SEXY CULONA ",
-    "MI RICA TETONA",
-    "RICURA SEXY",
-    "MAMACITA TETONA",
-    "SOÑÉ CONTIGO HOY HACIENDO YA SABES, BUENO NO TE DISTRAIGO",
-    "SEXY COLITA",
-    "NO OLVIDES, HOY TOCA TIKI TIKI",
-    "MI VICIO SEXUAL",
-    "QUE DICES SI TE PENETRO HOY?, BUENO NO TE DISTRAIGO",
-  ];
-
-  const nombreRandom = () => {
-    const random = Math.floor(Math.random() * nombres.length);
-    return nombres[random];
-  };
-
-  const temporizador = () => {
-    const hoy = new Date();
-
-    const fecha = new Date();
-
-    const resta = (final) => {
-      console.log(final - hoy);
-      setTimeout(() => {
-        alert(
-          `HOLA ${nombreRandom()}, TU TURNO TERMINA A LAS ${
-            final.getHours() + 1
-          } HORAS, ATENTA ♥♥♥♥ !!!`
-        );
-      }, final - hoy);
-    };
-
-    console.log(time);
-    time.map((e) => {
-      fecha.setHours(e, 44, 0);
-      console.log(fecha);
-      resta(fecha);
-    });
-  };
+  // useEffect(() => {
+  //   console.log(totalTime.length);
+  // }, [<Schedule />]);
 
   const cambiarPagina = () => {
     if (pagina1 === "" || pagina2 === "hidden") {
@@ -61,10 +23,6 @@ function App() {
       setPagina2("hidden");
     }
   };
-
-  useEffect(() => {
-    temporizador();
-  }, [time]);
 
   return (
     <div>

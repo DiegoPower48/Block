@@ -3,8 +3,15 @@ import { useCounterStore } from "../store/store";
 
 export default function Hour(prop) {
   const { start, dia, end, value } = prop;
-  const { calendario, setDia, removeHora, setChanged, setTime, time } =
-    useCounterStore();
+  const {
+    calendario,
+    setDia,
+    removeHora,
+    setChanged,
+    setTime,
+    setTotalTime,
+    totalTime,
+  } = useCounterStore();
   const [click, setClick] = useState("bg-black");
   const [fechas, setFechas] = useState({ [dia]: start });
   const [loading, setLoading] = useState(false);
@@ -62,6 +69,7 @@ export default function Hour(prop) {
       setLoading(true);
       setDia(dia, start);
       setChanged();
+      // console.log(totalTime);
     } else {
       setClick("bg-black");
       removeHora(dia, start);
@@ -73,6 +81,7 @@ export default function Hour(prop) {
     try {
       if (calendario[dia].includes(start)) {
         setClick("bg-red-600");
+        // setTotalTime(start);
         setDia(dia, start);
         setChanged();
         setTimer(true);

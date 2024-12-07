@@ -4,15 +4,58 @@ import axios from "axios";
 import { useCounterStore } from "../store/store";
 
 function Schedule() {
-  const { setCalendario, calendarioNuevo, changed } = useCounterStore();
+  const { setCalendario, calendarioNuevo, changed, time, totalTime } =
+    useCounterStore();
   const [loading, setLoading] = useState(false);
   const [status, setstatus] = useState("");
+
+  const nombres = [
+    "HERMOSA ❤❤❤",
+    "MI SEXY CULONA ",
+    "MI RICA TETONA",
+    "RICURA SEXY",
+    "MAMACITA TETONA",
+    "SOÑÉ CONTIGO HOY HACIENDO YA SABES, BUENO NO TE DISTRAIGO",
+    "SEXY COLITA",
+    "NO OLVIDES, HOY TOCA TIKI TIKI",
+    "MI VICIO SEXUAL",
+    "QUE DICES SI TE PENETRO HOY?, BUENO NO TE DISTRAIGO",
+  ];
+
+  const nombreRandom = () => {
+    const random = Math.floor(Math.random() * nombres.length);
+    return nombres[random];
+  };
+
+  const temporizador = () => {
+    const hoy = new Date();
+
+    const resta = (hour) => {
+      const fecha = new Date();
+      fecha.setHours(hour, 57, 0);
+      console.log(fecha - hoy);
+      console.log(fecha);
+      setTimeout(() => {
+        alert(
+          `HOLA ${nombreRandom()}, TU TURNO TERMINA A LAS ${
+            fecha.getHours() + 1
+          } HORAS, ATENTA ♥♥♥♥ !!!`
+        );
+      }, fecha - hoy);
+    };
+
+    console.log(time);
+    time.map((e) => {
+      resta(e);
+    });
+  };
 
   const cargarDatos = async () => {
     try {
       const res = await axios.get(
         "https://portfolio-c4l9.onrender.com/horario"
       );
+
       return res;
     } catch (error) {
       console.log(error);
@@ -62,6 +105,10 @@ function Schedule() {
     }
   }, [changed]);
 
+  useEffect(() => {
+    temporizador();
+  }, [time]);
+
   return (
     <>
       <div>
@@ -69,6 +116,7 @@ function Schedule() {
           <div></div>
         ) : (
           <div className="flex pt-12 flex-wrap">
+            {/* <div>{totalTime.length}</div> */}
             <div className="flex flex-col  w-auto m-3 ">
               <div className="font-bold text-center">LUNES</div>
               <Hour start="6am" end="7am" dia="Lunes" value={1} />
