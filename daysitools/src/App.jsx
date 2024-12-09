@@ -1,16 +1,11 @@
 import "./App.css";
 import Block from "./pages/block";
 import Schedule from "./pages/schedule";
-import { useEffect, useState } from "react";
-import { useCounterStore } from "./store/store";
+import { useState } from "react";
 
 function App() {
   const [pagina1, setPagina1] = useState("");
   const [pagina2, setPagina2] = useState("hidden");
-
-  // useEffect(() => {
-  //   console.log(totalTime.length);
-  // }, [<Schedule />]);
 
   const cambiarPagina = () => {
     if (pagina1 === "" || pagina2 === "hidden") {

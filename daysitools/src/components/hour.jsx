@@ -9,8 +9,9 @@ export default function Hour(prop) {
     removeHora,
     setChanged,
     setTime,
-    setTotalTime,
+    sumTotalTime,
     totalTime,
+    resTotalTime,
   } = useCounterStore();
   const [click, setClick] = useState("bg-black");
   const [fechas, setFechas] = useState({ [dia]: start });
@@ -68,10 +69,11 @@ export default function Hour(prop) {
       }));
       setLoading(true);
       setDia(dia, start);
+      sumTotalTime();
       setChanged();
-      // console.log(totalTime);
     } else {
       setClick("bg-black");
+      resTotalTime();
       removeHora(dia, start);
       setChanged();
     }
@@ -81,7 +83,8 @@ export default function Hour(prop) {
     try {
       if (calendario[dia].includes(start)) {
         setClick("bg-red-600");
-        // setTotalTime(start);
+        sumTotalTime();
+        console.log(calendario[dia]);
         setDia(dia, start);
         setChanged();
         setTimer(true);

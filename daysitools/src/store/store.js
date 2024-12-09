@@ -15,8 +15,6 @@ export const useCounterStore = create((set) => ({
 
   changed: 0,
   setChanged: () => set((state) => ({ changed: state.changed + 1 })),
-  // addChanged: () => set((state) => ({ changed: state.changed + 1 })),
-  // deleteChanged: () => set((state) => ({ changed: state.changed -1 })),
 
   calendarioNuevo: {
     Lunes: [],
@@ -53,10 +51,8 @@ export const useCounterStore = create((set) => ({
       time: [...state.time, hora],
     })),
 
-  totalTime: [],
+  totalTime: 0,
 
-  setTotalTime: (hora) =>
-    set((state) => ({
-      totalTime: [...state.totalTime, hora],
-    })),
+  sumTotalTime: () => set((state) => ({ totalTime: state.totalTime + 1 })),
+  resTotalTime: () => set((state) => ({ totalTime: state.totalTime - 1 })),
 }));
