@@ -51,7 +51,7 @@ function Schedule() {
   const cargarDatos = async () => {
     try {
       const res = await axios.get(
-        "https://portfolio-c4l9.onrender.com/horario"
+        "https://portfolio-bghy.onrender.com/horario"
       );
 
       return res;
