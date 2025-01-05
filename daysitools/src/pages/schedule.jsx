@@ -50,9 +50,7 @@ function Schedule() {
 
   const cargarDatos = async () => {
     try {
-      const res = await axios.get(
-        "https://portfolio-c4l9.onrender.com/horario"
-      );
+      const res = await axios.get("https://backendmichu.onrender.com/horario");
 
       return res;
     } catch (error) {
@@ -63,7 +61,7 @@ function Schedule() {
   const enviarDatos = async (datos) => {
     try {
       const res = await axios.post(
-        "https://portfolio-c4l9.onrender.com/edithorario",
+        "https://backendmichu.onrender.com/edithorario",
         datos
       );
       return res;

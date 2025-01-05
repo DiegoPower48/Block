@@ -10,7 +10,7 @@ function Block() {
     const Datos = async () => {
       try {
         const res = await axios.get(
-          "https://portfolio-c4l9.onrender.com/blocks"
+          "https://backendmichu.onrender.com/blocks"
         );
         setLoading(true);
         setTextos(res.data);
