@@ -9,9 +9,7 @@ function Block() {
   useEffect(() => {
     const Datos = async () => {
       try {
-        const res = await axios.get(
-          "https://backendmichu.onrender.com/blocks"
-        );
+        const res = await axios.get("https://backendmichu.onrender.com/blocks");
         setLoading(true);
         setTextos(res.data);
       } catch (error) {
