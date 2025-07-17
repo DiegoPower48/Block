@@ -12,7 +12,7 @@ export default function Cuadro(props) {
       texto: texto,
     };
     try {
-      await axios.post("https://portfolio-c4l9.onrender.com/editblock", datos);
+      await axios.post("https://backendmichu.onrender.com/editblock", datos);
     } catch (error) {
       console.log(error);
     }
