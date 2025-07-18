@@ -50,7 +50,7 @@ function Schedule() {
 
   const cargarDatos = async () => {
     try {
-      const res = await axios.get("https://backendmichu.onrender.com/horario");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/horario`);
 
       return res;
     } catch (error) {
@@ -61,7 +61,7 @@ function Schedule() {
   const enviarDatos = async (datos) => {
     try {
       const res = await axios.post(
-        "https://backendmichu.onrender.com/edithorario",
+        `${import.meta.env.VITE_API_URL}/edithorario`,
         datos
       );
       return res;
