@@ -9,7 +9,7 @@ function Block() {
   useEffect(() => {
     const Datos = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}/blocks`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/block`);
         setLoading(true);
         setTextos(res.data);
       } catch (error) {

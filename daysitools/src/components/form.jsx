@@ -12,7 +12,7 @@ export default function Cuadro(props) {
       texto: texto,
     };
     try {
-      await axios.post(import.meta.env.VITE_API_URL, datos);
+      await axios.post(`${import.meta.env.VITE_API_URL}/block`, datos);
     } catch (error) {
       console.log(error);
     }
